@@ -2,6 +2,10 @@
   {% for post in postslist | reverse %}
     <li class="post-list__item">
       <div>
+        <div class="article-thumbnail-container">
+          {% set defaultimg = "/images/thumbnail.jpg" %}
+          <img class="article-thumbnail" src="{{post.thumbnail if post.thumbnail else defaultimg }}"/>
+        </div>
         <div class="post-list__meta">
           <time datetime="{{ post.date | htmlDateString }}">
             {{ post.date | readableDate }}

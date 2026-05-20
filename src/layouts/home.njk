@@ -17,9 +17,11 @@ layout: base
             {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
           {% endif %}
 
-          <li>
-            <a href="{{ item.url | url }}" {{ externalAttribute | safe }}>{{ item.text }}</a>
-          </li>
+            <li>
+              <a href="{{ item.url | url }}" {{ externalAttribute | safe }} >
+                <img src="{{ item.icon }}" alt="{{item.text}}" title="{{item.text}}" style="width:2rem;" />
+              </a>
+            </li>
         {% endfor %}
       </ul>
     {% endif %}

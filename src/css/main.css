@@ -8,6 +8,7 @@
 @import 'footer.css';
 @import 'post.css';
 @import 'about.css';
+@import 'newsletter.css';
 
 .layout-wrapper {
   display: grid;
@@ -17,12 +18,13 @@
 
 .main {
   display: flex;
+  padding-top: 6rem;
   padding-bottom: 4rem;
   flex-direction: column;
   padding-left: 1rem;
   padding-right: 1rem;
   min-width: 0;
-  max-width: 48.75rem;
+  max-width: 60rem;
   margin-left: auto;
   margin-right: auto;
 }

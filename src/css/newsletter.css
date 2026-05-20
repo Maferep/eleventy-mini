@@ -1,0 +1,11 @@
+
+button {
+  color: #EEF;
+  background-color: #223;
+}
+
+@media (prefers-color-scheme: light) {
+  input[type="email"] {
+    border: solid 1px gray;
+  }
+}

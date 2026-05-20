@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href={{ page.url | url | absoluteUrl(site.url) }}>
-    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Feed">
+    <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="Maferep's Blog">
 
-    {% bundledcss %}
+    <link rel="stylesheet" href="/css/main.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
@@ -50,10 +50,6 @@
       <meta name="twitter:image" content="{{ socialImage | url | absoluteUrl(site.url) }}"/>
     {% endif %}
 
-    {# Add mermaid -- start #}
-      <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-      <script>mermaid.initialize({startOnLoad:true});</script>
-    {# Add mermaid -- end #}
   </head>
   <body>
     <div class="layout-wrapper">
@@ -99,7 +95,6 @@
 
       <footer class="footer">
         <div class="footer__content">
-
           <ul class="hero__social-links">
             {% if site.socialLinks %}
               {% for item in site.socialLinks %}
@@ -108,9 +103,11 @@
                 {% if item.external %}
                   {% set externalAttribute = 'target="_blank" rel="noopener noreferrer"' %}
                 {% endif %}
-
+                
                 <li>
-                  <a href="{{ item.url | url }}" {{ externalAttribute | safe }} >{{ item.text }}</a>
+                  <a href="{{ item.url | url }}" {{ externalAttribute | safe }} >
+                    <img src="{{ item.icon }}" alt="{{item.text}}" title="{{item.text}}" style="width:2rem;" />
+                  </a>
                 </li>
               {% endfor %}
             {% endif %}
@@ -125,7 +122,9 @@
                 {% endif %}
 
                 <li>
-                  <a href="{{ item.url | url }}" {{ externalAttribute | safe }} >{{ item.text }}</a>
+                  <a href="{{ item.url | url }}" {{ externalAttribute | safe }} >
+                    <img src="{{ item.icon }}" alt="{{item.text}}" title="{{item.text}}" style="width:2rem;" />
+                  </a>
                 </li>
               {% endfor %}
             {% endif %}
@@ -136,7 +135,7 @@
           Created by
       <a href="https://twitter.com/yinkakun" target="_blank" rel="noopener">Yinka,</a>
        Powered by <a href="https://www.11ty.dev" target="_blank" rel="noopener">11ty,</a>
-        Checkout <a href="https://github.com/yinkakun/eleventy-duo" target="_blank" rel="noopener noreferrer">project's github repo </a>
+        Modified version of <a href="https://github.com/yinkakun/eleventy-duo" target="_blank" rel="noopener noreferrer">Eleventy Duo</a>
             </p>
           {% endif %}
 
@@ -144,7 +143,5 @@
       </div>
 
     </footer>
-
-    {% bundledjs %}
   </body>
 </html>
