@@ -1,8 +1,20 @@
 :root {
-  --accent: #0074d9;
-  --background: #fffffe;
-  --color: rgb(41, 41, 41);
-  --color-80: rgba(41, 41, 41, .8);
-  --color-30: rgba(41, 41, 41, .3);
-  --color-10: rgba(41, 41, 41, .1);
+  --accent: #9782ff;
+  --background: #141418;
+  --color: rgb(235, 233, 247);
+  --color-80: rgba(235, 233, 247, .8);
+  --color-30: rgba(235, 233, 247, .3);
+  --color-10: rgba(235, 233, 247, .1);
+  --gradient: linear-gradient( #191920, #202026);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --accent: #9782ff;
+    --background: #ffffff;
+    --color: rgb(26, 25, 29);
+    --color-80: rgba(26, 25, 29, .8);
+    --color-30: rgba(26, 25, 29, .3);
+    --color-10: rgba(26, 25, 29, .1);
+    --gradient: linear-gradient( #e5e5ee, #dedee9);
+  }
 }
