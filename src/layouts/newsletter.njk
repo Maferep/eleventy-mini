@@ -1,45 +1,22 @@
 ---
 layout: base.njk
 ---
-<style>
-  .message {
-    margin-top: 0;
-    margin-bottom: 0;
-    transition: transform 500ms;
-    transform: scale(1, 1);
-  }
-  .message.collapsed {
-    transform: scale(1, 0);
-  }
-</style>
-<div class="about">
-  {{ content | safe }}
-  <div>
-  <input type="email" name="email" required/>
-  <button type="submit" onclick="submitEmailFromInput(this)">Subscribe</button>
-  </div>
-  <div style="margin-top: 1rem;">
-    <!--TODO: Janky display-->
-  <p class="message fail collapsed"></p>
-  </div>
-</div>
-<script>
-function submitEmailFromInput(t) {
-  submitEmail(t.parentElement.querySelector('input').value)
-}
-function submitEmail(email) {
-  const fetchPromise = fetch("https://pillow-rss.ceets-deets.vip/subscribe/" + email);
 
-  fetchPromise
-    .then((response) => {
-      if (response.status != 200 && response.status != 201) {
-        document.querySelector(".message").textContent = "Could not subscribe... please try again!"
-        document.querySelector(".message").classList.remove("collapsed");
-      } else {
-        document.querySelector(".message").textContent = "Subscribed!"
-        document.querySelector(".message").classList.remove("collapsed");
-      }
-      return response.text()
-    })
-}
-</script>
+<div class="about">
+    {{ content | safe }}
+    <div>
+        <form
+            action="https://buttondown.com/api/emails/embed-subscribe/[YOUR_BUTTONDOWN_USERNAME]"
+            method="post"
+            class="embeddable-buttondown-form"
+        >
+            <input type="email" name="email" id="bd-email" required />
+            <input type="submit" value="Subscribe" />
+        </form>
+    </div>
+    <div style="margin-top: 1rem">
+        <!--TODO: Janky display-->
+        <p class="message fail collapsed"></p>
+    </div>
+</div>
+<script></script>
